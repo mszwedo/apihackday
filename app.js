@@ -6,7 +6,7 @@ var util = require('util');
 //var weather = new Weather();
 
 var SendGrid = require('./node_modules/sendgrid-nodejs').SendGrid;
-var sendgrid = new SendGrid('mszwedo', 'mssendgrid');
+var sendgrid = new SendGrid(mszwedo, sendgrid);
 
 var app = express();
 
@@ -25,8 +25,8 @@ app.get('/sendEmail', function(req,res) {
     //var emailMessage = message + ' ' + weatherMessage;
 
     sendgrid.send({
-        to: 'szwedo@vt.edu',
-        from: 'mike.szwedo@gmail.com',
+        to: 'toEmailAddress@gmail.com',
+        from: 'fromEmailAddress@gmail.com',
         subject: subjectLine,
         text: message
     }, function(success, message) {
